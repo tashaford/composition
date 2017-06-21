@@ -11,4 +11,5 @@ public abstract class MythicalBeast {
   public String getName(){
     return this.name;
   }
+
 }

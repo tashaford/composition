@@ -1,24 +1,39 @@
 package example.codeclan.com.composition_starter;
 
-public class Wizard {
-  String name;
-  Broomstick broomstick;
+import behaviours.Defender;
+import behaviours.Flyable;
 
-  public Wizard(String name, Broomstick broomstick){
+public class Wizard implements Flyable, Defender {
+  String name;
+  private Flyable ride;
+  private Defender defender;
+
+  public Wizard(String name, Flyable ride, Defender defender){
     this.name = name;
-    this.broomstick = broomstick;
+    this.ride = ride;
+    this.defender = defender;
   }
 
   public String getName(){
     return this.name;
   }
 
-  public Broomstick getBroomstick(){
-    return this.broomstick;
+  public Flyable getRide(){
+    return this.ride;
   }
 
   public String fly(){
-    return this.broomstick.fly();
+    return this.ride.fly();
   }
+
+  public void setRide(Flyable ride) {
+    this.ride = ride;
+  }
+
+
+  public String attack() {
+    return this.defender.attack();
+  }
+
 
 }
